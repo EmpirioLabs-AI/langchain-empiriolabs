@@ -1,0 +1,58 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "langchain-empiriolabs"
+version = "0.1.0"
+description = "An integration package connecting EmpirioLabs and LangChain"
+authors = [{ name = "EmpirioLabs", email = "support@empiriolabs.ai" }]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.9,<4.0"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "langchain-core>=0.3.15",
+    "langchain-openai>=0.2.0",
+]
+
+[project.urls]
+Homepage = "https://empiriolabs.ai"
+Documentation = "https://docs.empiriolabs.ai"
+Repository = "https://github.com/EmpirioLabs-ai/langchain-empiriolabs"
+Issues = "https://github.com/EmpirioLabs-ai/langchain-empiriolabs/issues"
+Changelog = "https://github.com/EmpirioLabs-ai/langchain-empiriolabs/releases"
+
+[dependency-groups]
+test = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-socket>=0.7.0",
+    "langchain-tests>=0.3.0",
+]
+lint = ["ruff>=0.5.0"]
+typing = ["mypy>=1.10.0"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["langchain_empiriolabs"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B"]
+
+[tool.mypy]
+disallow_untyped_defs = false
+ignore_missing_imports = true
