@@ -4,9 +4,9 @@ build-backend = "hatchling.build"
 
 [project]
 name = "langchain-empiriolabs"
-version = "0.1.0"
-description = "An integration package connecting EmpirioLabs and LangChain"
-authors = [{ name = "EmpirioLabs", email = "support@empiriolabs.ai" }]
+version = "0.1.1"
+description = "An integration package connecting EmpirioLabs AI and LangChain"
+authors = [{ name = "EmpirioLabs AI", email = "support@empiriolabs.ai" }]
 license = { text = "MIT" }
 readme = "README.md"
 requires-python = ">=3.9,<4.0"
@@ -30,9 +30,9 @@ dependencies = [
 [project.urls]
 Homepage = "https://empiriolabs.ai"
 Documentation = "https://docs.empiriolabs.ai"
-Repository = "https://github.com/EmpirioLabs-ai/langchain-empiriolabs"
-Issues = "https://github.com/EmpirioLabs-ai/langchain-empiriolabs/issues"
-Changelog = "https://github.com/EmpirioLabs-ai/langchain-empiriolabs/releases"
+Repository = "https://github.com/EmpirioLabs-AI/langchain-empiriolabs"
+Issues = "https://github.com/EmpirioLabs-AI/langchain-empiriolabs/issues"
+Changelog = "https://github.com/EmpirioLabs-AI/langchain-empiriolabs/releases"
 
 [dependency-groups]
 test = [

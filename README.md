@@ -1,8 +1,8 @@
 # langchain-empiriolabs
 
-This package contains the LangChain integration for [EmpirioLabs](https://empiriolabs.ai).
+This package contains the LangChain integration for [EmpirioLabs AI](https://empiriolabs.ai).
 
-EmpirioLabs serves frontier open models (Qwen3, DeepSeek V4, GLM-5.1, Kimi K2.7 Code, MiniMax M3, and more) through one OpenAI-compatible API. Browse the full model catalog at [docs.empiriolabs.ai](https://docs.empiriolabs.ai).
+EmpirioLabs AI is specialized AI model hosting for open, proprietary, and custom stacks. Its chat models include Qwen3, DeepSeek V4, GLM-5.1, Kimi K2.7 Code and MiniMax M3; browse the full model catalog at [docs.empiriolabs.ai](https://docs.empiriolabs.ai).
 
 ## Installation
 
@@ -16,7 +16,7 @@ Set your API key as an environment variable:
 export EMPIRIOLABS_API_KEY="your-api-key"
 ```
 
-You can create a key from the [EmpirioLabs dashboard](https://platform.empiriolabs.ai).
+You can create a key from the [EmpirioLabs AI dashboard](https://platform.empiriolabs.ai).
 
 ## Chat models
 
@@ -54,14 +54,14 @@ print(llm_with_tools.invoke("What is the weather in SF?").tool_calls)
 
 ### Available models
 
-Any model slug from the EmpirioLabs catalog works. Some popular chat slugs:
+Any model slug from the EmpirioLabs AI catalog works. Some popular chat slugs:
 
 | Slug | Notes |
 | --- | --- |
 | `qwen3-7-plus` | General-purpose chat (default) |
 | `qwen3-7-max` | Highest-capability Qwen3 |
 | `deepseek-v4-pro` | Reasoning model |
-| `deepseek-v4-flash` | Fast, low-cost |
+| `deepseek-v4-1-flash` | Fast |
 | `glm-5-1` | GLM-5.1 |
 | `kimi-k2-7-code` | Coding-focused, reasoning |
 | `minimax-m3` | MiniMax M3 |
