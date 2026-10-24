@@ -20,8 +20,9 @@ DEFAULT_MODEL = "qwen3-7-plus"
 class ChatEmpirioLabs(BaseChatOpenAI):
     """EmpirioLabs chat model integration.
 
-    EmpirioLabs serves frontier open models through one OpenAI-compatible API.
-    See the model catalog at https://docs.empiriolabs.ai for available slugs.
+    EmpirioLabs AI is specialized AI model hosting for open, proprietary, and
+    custom stacks. See the model catalog at https://docs.empiriolabs.ai for
+    available slugs.
 
     Setup:
         Install ``langchain-empiriolabs`` and set the environment variable

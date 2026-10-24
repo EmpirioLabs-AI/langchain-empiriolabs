@@ -83,6 +83,8 @@ vector = embeddings.embed_query("Hello, world!")
 print(len(vector))
 ```
 
+`embed_documents` sends 10 texts per request, the most `text-embedding-v4` accepts. Set `chunk_size` for a model that takes more.
+
 ## Configuration
 
 | Argument | Environment variable | Default |

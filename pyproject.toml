@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "langchain-empiriolabs"
-version = "0.1.1"
+version = "0.1.2"
 description = "An integration package connecting EmpirioLabs AI and LangChain"
 authors = [{ name = "EmpirioLabs AI", email = "support@empiriolabs.ai" }]
 license = { text = "MIT" }

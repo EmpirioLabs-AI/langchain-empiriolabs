@@ -1,7 +1,8 @@
 """LangChain integration for EmpirioLabs.
 
-EmpirioLabs serves frontier open models (Qwen3, DeepSeek V4, GLM-5.1,
-Kimi K2.7 Code, MiniMax M3, and more) through one OpenAI-compatible API.
+EmpirioLabs AI is specialized AI model hosting for open, proprietary, and
+custom stacks: chat models such as Qwen3, DeepSeek V4, GLM-5.1, Kimi K2.7
+Code and MiniMax M3, and embeddings.
 """
 
 from importlib import metadata
