@@ -10,8 +10,6 @@ from pydantic import Field, SecretStr
 
 DEFAULT_API_BASE = "https://api.empiriolabs.ai/v1"
 DEFAULT_MODEL = "text-embedding-v4"
-# text-embedding-v4 accepts at most 10 inputs per request.
-DEFAULT_CHUNK_SIZE = 10
 
 
 class EmpirioLabsEmbeddings(OpenAIEmbeddings):
@@ -46,10 +44,6 @@ class EmpirioLabsEmbeddings(OpenAIEmbeddings):
 
     model: str = Field(default=DEFAULT_MODEL)
     """The EmpirioLabs embedding model slug to call."""
-
-    chunk_size: int = DEFAULT_CHUNK_SIZE
-    """Inputs per request. Defaults to 10, the most ``text-embedding-v4``
-    accepts; raise it for a model that takes more."""
 
     empiriolabs_api_key: Optional[SecretStr] = Field(
         alias="api_key",

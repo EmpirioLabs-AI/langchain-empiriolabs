@@ -4,7 +4,7 @@ import os
 from typing import Any
 
 from langchain_empiriolabs import EmpirioLabsEmbeddings
-from langchain_empiriolabs.embeddings import DEFAULT_API_BASE, DEFAULT_CHUNK_SIZE
+from langchain_empiriolabs.embeddings import DEFAULT_API_BASE
 
 os.environ.setdefault("EMPIRIOLABS_API_KEY", "test-key")
 
@@ -25,28 +25,28 @@ def test_defaults() -> None:
     embeddings = EmpirioLabsEmbeddings()
     assert embeddings.model == "text-embedding-v4"
     assert embeddings.openai_api_base == DEFAULT_API_BASE
-    assert DEFAULT_CHUNK_SIZE == 10
-    assert embeddings.chunk_size == DEFAULT_CHUNK_SIZE
+    # LangChain's own default; the API takes up to 2,048 inputs per request.
+    assert embeddings.chunk_size == 1000
 
 
-def test_embed_documents_sends_at_most_ten_inputs_per_request() -> None:
+def test_embed_documents_sends_one_request_per_chunk_in_order() -> None:
     embeddings = EmpirioLabsEmbeddings()
     client = _RecordingClient()
     embeddings.client = client
-    texts = [f"document {i}" for i in range(25)]
+    texts = [f"document {i}" for i in range(1500)]
 
     vectors = embeddings.embed_documents(texts)
 
-    assert [len(batch) for batch in client.batches] == [10, 10, 5]
+    assert [len(batch) for batch in client.batches] == [1000, 500]
     assert [text for batch in client.batches for text in batch] == texts
-    assert len(vectors) == 25
+    assert len(vectors) == 1500
 
 
-def test_chunk_size_can_be_raised_for_a_model_that_takes_more() -> None:
-    embeddings = EmpirioLabsEmbeddings(model="skylark-embedding-vision", chunk_size=16)
+def test_chunk_size_can_be_set() -> None:
+    embeddings = EmpirioLabsEmbeddings(chunk_size=16)
     client = _RecordingClient()
     embeddings.client = client
 
-    embeddings.embed_documents([f"text {i}" for i in range(16)])
+    embeddings.embed_documents([f"text {i}" for i in range(40)])
 
-    assert [len(batch) for batch in client.batches] == [16]
+    assert [len(batch) for batch in client.batches] == [16, 16, 8]
