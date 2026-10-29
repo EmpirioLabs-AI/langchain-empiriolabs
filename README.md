@@ -2,7 +2,7 @@
 
 This package contains the LangChain integration for [EmpirioLabs AI](https://empiriolabs.ai).
 
-EmpirioLabs AI is specialized AI model hosting for open, proprietary, and custom stacks. Its chat models include Qwen3, DeepSeek V4, GLM-5.1, Kimi K2.7 Code and MiniMax M3; browse the full model catalog at [docs.empiriolabs.ai](https://docs.empiriolabs.ai).
+EmpirioLabs AI is specialized AI model hosting for open, proprietary, and custom stacks. Every model it serves is listed, with its ID and price, in the live catalog at [empiriolabs.ai/models](https://empiriolabs.ai/models).
 
 ## Installation
 
@@ -25,7 +25,7 @@ You can create a key from the [EmpirioLabs AI dashboard](https://platform.empiri
 ```python
 from langchain_empiriolabs import ChatEmpirioLabs
 
-llm = ChatEmpirioLabs(model="qwen3-7-plus")
+llm = ChatEmpirioLabs(model="MODEL_ID")  # any chat model ID from empiriolabs.ai/models
 
 response = llm.invoke("Explain backpropagation in one paragraph.")
 print(response.content)
@@ -54,21 +54,10 @@ print(llm_with_tools.invoke("What is the weather in SF?").tool_calls)
 
 ### Available models
 
-Any model slug from the EmpirioLabs AI catalog works. Some popular chat slugs:
-
-| Slug | Notes |
-| --- | --- |
-| `qwen3-7-plus` | General-purpose chat (default) |
-| `qwen3-7-max` | Highest-capability Qwen3 |
-| `deepseek-v4-pro` | Reasoning model |
-| `deepseek-v4-1-flash` | Fast |
-| `glm-5-1` | GLM-5.1 |
-| `kimi-k2-7-code` | Coding-focused, reasoning |
-| `minimax-m3` | MiniMax M3 |
+Any chat model ID from the live catalog works: [empiriolabs.ai/models](https://empiriolabs.ai/models), or `GET https://api.empiriolabs.ai/v1/models` from code. The catalog changes as models are added and retired, so this page names none.
 
 Reasoning models place their chain-of-thought in `response.additional_kwargs["reasoning_content"]`.
 
-The live list is always available from `GET https://api.empiriolabs.ai/v1/models`.
 
 ## Embeddings
 
@@ -77,7 +66,7 @@ The live list is always available from `GET https://api.empiriolabs.ai/v1/models
 ```python
 from langchain_empiriolabs import EmpirioLabsEmbeddings
 
-embeddings = EmpirioLabsEmbeddings(model="text-embedding-v4")
+embeddings = EmpirioLabsEmbeddings(model="MODEL_ID")  # any embedding model ID from empiriolabs.ai/models
 
 vector = embeddings.embed_query("Hello, world!")
 print(len(vector))

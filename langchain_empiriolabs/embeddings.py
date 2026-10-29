@@ -29,7 +29,7 @@ class EmpirioLabsEmbeddings(OpenAIEmbeddings):
 
             from langchain_empiriolabs import EmpirioLabsEmbeddings
 
-            embeddings = EmpirioLabsEmbeddings(model="text-embedding-v4")
+            embeddings = EmpirioLabsEmbeddings(model="MODEL_ID")
 
     Embed single text:
         .. code-block:: python

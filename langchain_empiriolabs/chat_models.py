@@ -35,8 +35,8 @@ class ChatEmpirioLabs(BaseChatOpenAI):
 
     Key init args, completion params:
         model: str
-            Name of the EmpirioLabs model to use, e.g. ``qwen3-7-plus``,
-            ``deepseek-v4-pro``, ``glm-5-1``, or ``kimi-k2-7-code``.
+            Name of the EmpirioLabs model to use: any chat model ID from
+            https://empiriolabs.ai/models.
         temperature: float
             Sampling temperature.
         max_tokens: Optional[int]
@@ -59,7 +59,7 @@ class ChatEmpirioLabs(BaseChatOpenAI):
             from langchain_empiriolabs import ChatEmpirioLabs
 
             llm = ChatEmpirioLabs(
-                model="qwen3-7-plus",
+                model="MODEL_ID",
                 temperature=0,
                 max_tokens=None,
                 timeout=None,
@@ -102,7 +102,7 @@ class ChatEmpirioLabs(BaseChatOpenAI):
             llm_with_tools = llm.bind_tools([GetWeather])
             llm_with_tools.invoke("What is the weather in SF?")
 
-    Reasoning models (e.g. ``deepseek-v4-pro``, ``kimi-k2-7-code``) place their
+    Reasoning models place their
     chain-of-thought in ``additional_kwargs["reasoning_content"]`` on the
     returned message.
     """
